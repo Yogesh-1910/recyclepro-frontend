@@ -1,17 +1,12 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "build" }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "https://recyclepro-backend-production.up.railway.app/api/$1"
+      "source": "/api/:path*",
+      "destination": "https://recyclepro-backend-production.up.railway.app/api/:path*"
     },
-    { "src": "/(.*)", "dest": "/index.js" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
